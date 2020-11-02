@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React, { Component, useState, useEffect } from 'react';
 import './App.css';
+import { HashRouter, Route, Switch } from 'react-router-dom';
+import GallaryCard from './components/GallaryCard'
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
+import ListenScroll from './components/ListenScroll'
+import LinearProgress from '@material-ui/core/LinearProgress';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import MainPage from './components/MainPage'
+import GallaryPage from './components/GallaryPage';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+class App extends Component {
+  render() {
+    return (
+      <HashRouter >
+        <div className="App">
+          <Route path="/" exact component={MainPage}></Route>
+          <Route path="/g/" exact component={GallaryPage}></Route>
+        </div>
+      </HashRouter>
+    );
+  }
 }
 
 export default App;
